@@ -1,4 +1,4 @@
-TARGET_EXEC := tcpmap
+TARGET_EXEC := camover
 BUILD_DIR := ./build
 SRC_DIRS := ./src
 CC = gcc
@@ -18,7 +18,7 @@ $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 
 $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@
+	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@ 
 
 .PHONY: clean
 clean:
@@ -32,3 +32,6 @@ run: $(BUILD_DIR)/$(TARGET_EXEC)
 
 install: $(BUILD_DIR)/$(TARGET_EXEC)
 	install -m 755 $(BUILD_DIR)/$(TARGET_EXEC) /usr/bin/
+
+uninstall:
+	rm /usr/bin/$(TARGET_EXEC)
