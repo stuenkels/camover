@@ -2,7 +2,7 @@
 Camover is a command-line tool for generating network packets with randomized source MAC addresses to overflow switch CAM tables
 
 ## Usage 
-'''
+```
 Usage: camover [OPTION...]
 -d, --delay=DELAY          Specifys a time in miliseconds to delay between
                              sending packets
@@ -13,12 +13,12 @@ Usage: camover [OPTION...]
   -v, --verbose              Produce verbose output
   -?, --help                 Give this help list
       --usage                Give a short usage message
-'''
+```
 
 Example:
-'''
+```
 camover -i eno0 -n 6500 -p exploit_packet.bin 
-'''
+```
 Sends 6500 packets over the interface eno0 using the packet file exploit_packet.bin
 
 ### Disclaimer
