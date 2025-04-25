@@ -19,7 +19,7 @@ Example:
 ```
 camover -i eno0 -n 6500 -p exploit_packet.bin 
 ```
-Sends 6500 packets over the interface eno0 using the packet file exploit_packet.bin
+Sends 6500 packets over the interface **eno0** using the packet file **exploit_packet.bin**
 
 ### Disclaimer
 This program was designed for a cybersecurity lab, and should only be used on networks that you have explicit permission to run it on. This program serves as a demonstration for how specific exploits can operate and as a learning tool for cybersecuirty. It should never be used in a malicious manor. 
