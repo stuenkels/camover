@@ -11,14 +11,14 @@ DEPS := $(OBJS:.o=.d)
 INC_DIRS := $(shell find $(SRC_DIRS) -type d)
 
 INC_FLAGS := $(addprefix -I,$(INC_DIRS))
-CPPFLAGS := $(INC_FLAGS) -MMD -MP -lpthread
+CFLAGS := $(INC_FLAGS) -MMD -MP -lpthread
 
 $(BUILD_DIR)/$(TARGET_EXEC): $(OBJS)
 	$(CC) $(OBJS) -o $@ $(LDFLAGS)
 
 $(BUILD_DIR)/%.c.o: %.c
 	mkdir -p $(dir $@)
-	$(CC) $(CPPFLAGS) $(CFLAGS) -c $< -o $@ 
+	$(CC) $(CFLAGS) -c $< -o $@ 
 
 .PHONY: clean
 clean:
@@ -26,12 +26,15 @@ clean:
 
 -include $(DEPS)
 
+.PHONY: install
 run: $(BUILD_DIR)/$(TARGET_EXEC)
 	clear
 	$(BUILD_DIR)/$(TARGET_EXEC)
 
+.PHONY: install
 install: $(BUILD_DIR)/$(TARGET_EXEC)
 	install -m 755 $(BUILD_DIR)/$(TARGET_EXEC) /usr/bin/
 
+.PHONY: uninstall
 uninstall:
 	rm /usr/bin/$(TARGET_EXEC)

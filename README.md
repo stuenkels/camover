@@ -23,3 +23,6 @@ Sends 6500 packets over the interface **eno0** using the packet file **exploit_p
 
 ### Disclaimer
 This program was designed for a cybersecurity lab, and should only be used on networks that you have explicit permission to run it on. This program serves as a demonstration for how specific exploits can operate and as a learning tool for cybersecuirty. It should never be used in a malicious manor. 
+
+Note for camoverpy users:
+If you are after speed use this version. Over a 1000 packet benchmark with no delay camoverpy takes 43.92 seconds, camover in c takes 0.05 seconds.
